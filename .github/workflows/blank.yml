@@ -41,7 +41,7 @@ jobs:
           tokenSuffix: '#'
           files: '["**/*.json"]'
         env:
-          TEST:  ${{ env.TEST }}
+          TEST:  ${{ secrets.TEST}}
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.1
