@@ -1,4 +1,4 @@
 {
   
-  "id": "#TEST#"
+  "id": "workspace('#TEST#')"
 }
