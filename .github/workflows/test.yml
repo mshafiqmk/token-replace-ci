@@ -14,11 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
     - name: Edmonton Power Company
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # setting GH_TOKEN for the entire job
           
         run: |
-        gh auth login --with-token
-        gh workflow run blank.yml --ref test1
+            gh auth login --with-token
+            gh workflow run blank.yml --ref test1
   
