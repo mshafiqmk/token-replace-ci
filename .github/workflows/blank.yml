@@ -6,9 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "main","test" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,7 +22,22 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - name: Test
+        run: |
+          git fetch                         # fetch branches
+          git status
 
+          git checkout test       # checkout to your branch
+          git branch 
+
+          git checkout main -- test.txt # copy files from the source branch
+          git branch 
+
+          git add -A
+
+          git diff-index --quiet HEAD ||  git commit -am "deploy files"  # commit to the repository (ignore if no modification)
+
+          git push origin test # push to remote branch
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
