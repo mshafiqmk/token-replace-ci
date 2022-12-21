@@ -16,7 +16,7 @@ jobs:
     #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # setting GH_TOKEN for the entire job
     steps:
     - run: |
-    gh workflow run blank.yml --ref test1
+        gh workflow run blank.yml --ref test1
   
   build:
     runs-on: ubuntu-latest
