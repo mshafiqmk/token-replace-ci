@@ -12,10 +12,13 @@ env:
 jobs:
   prebuild:
     runs-on: ubuntu-latest
-    env: 
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # setting GH_TOKEN for the entire job
+
     steps:
-    - run: |
+    - name: Edmonton Power Company
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # setting GH_TOKEN for the entire job
+          
+        run: |
         gh auth login --with-token
         gh workflow run blank.yml --ref test1
   
