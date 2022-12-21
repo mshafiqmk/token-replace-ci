@@ -30,11 +30,11 @@ jobs:
           git fetch                         # fetch branches
           git status
 
-          git checkout -b test       # checkout to your branch
+          git checkout -b test1       # checkout to your branch
           git branch 
 
-          git push origin test1 # push to remote branch
-      # Runs a single command using the runners shell
+          git push --set-upstream origin test1      # Runs a single command using the runners shell
+      
       - name: Run a one-line script
         run: echo Hello, world!
 
