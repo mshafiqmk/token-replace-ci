@@ -7,7 +7,9 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main","test1" ]
-
+  schedule:
+    # Runs "at minute 1 past every hour" (see https://crontab.guru)
+    - cron: '1 * * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -30,10 +32,12 @@ jobs:
           git fetch                         # fetch branches
           git status
 
-          git checkout -b test1       # checkout to your branch
+          git checkout test1       # checkout to your branch
           git branch 
+          echo "testing"
+          git add -A
 
-          git push --set-upstream origin test1      # Runs a single command using the runners shell
+          git push origin test1      # Runs a single command using the runners shell
       
       - name: Run a one-line script
         run: echo Hello, world!
